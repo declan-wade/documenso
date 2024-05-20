@@ -66,8 +66,7 @@ export const sendConfirmationToken = async ({
     await sendConfirmationEmail({ userId: user.id });
 
     return { success: true };
-  } catch (err: any) {
-    console.err(err)
+  } catch (err) {
     throw new Error(`Failed to send the confirmation email`);
   }
 };
