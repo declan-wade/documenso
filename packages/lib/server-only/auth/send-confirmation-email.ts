@@ -15,6 +15,8 @@ export const sendConfirmationEmail = async ({ userId }: SendConfirmationEmailPro
   const NEXT_PRIVATE_SMTP_FROM_NAME = process.env.NEXT_PRIVATE_SMTP_FROM_NAME;
   const NEXT_PRIVATE_SMTP_FROM_ADDRESS = process.env.NEXT_PRIVATE_SMTP_FROM_ADDRESS;
 
+  console.log(NEXT_PRIVATE_SMTP_FROM_ADDRESS)
+  console.log(NEXT_PRIVATE_SMTP_FROM_NAME)
   const user = await prisma.user.findFirstOrThrow({
     where: {
       id: userId,
@@ -39,7 +41,8 @@ export const sendConfirmationEmail = async ({ userId }: SendConfirmationEmailPro
   const confirmationLink = `${assetBaseUrl}/verify-email/${verificationToken.token}`;
   const senderName = NEXT_PRIVATE_SMTP_FROM_NAME || 'Documenso';
   const senderAdress = NEXT_PRIVATE_SMTP_FROM_ADDRESS || 'noreply@documenso.com';
-
+  console.log(senderAdress)
+  console.log(confirmationLink)
   const confirmationTemplate = createElement(ConfirmEmailTemplate, {
     assetBaseUrl,
     confirmationLink,

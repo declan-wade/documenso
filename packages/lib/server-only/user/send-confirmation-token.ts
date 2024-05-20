@@ -22,6 +22,7 @@ export const sendConfirmationToken = async ({
       email: email,
     },
   });
+  console.info(user)
 
   if (!user) {
     throw new Error('User not found');
@@ -60,10 +61,13 @@ export const sendConfirmationToken = async ({
   }
 
   try {
+    console.log("sending confirmation email")
+    console.log(user.id)
     await sendConfirmationEmail({ userId: user.id });
 
     return { success: true };
   } catch (err) {
+    console.err(err)
     throw new Error(`Failed to send the confirmation email`);
   }
 };
