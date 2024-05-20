@@ -7,8 +7,6 @@ import { NEXT_PUBLIC_WEBAPP_URL } from '@documenso/lib/constants/app';
 
 import type { ShareHandlerAPIResponse } from '~/pages/api/share';
 
-export const runtime = 'edge';
-
 const CARD_OFFSET_TOP = 173;
 const CARD_OFFSET_LEFT = 307;
 const CARD_WIDTH = 590;
